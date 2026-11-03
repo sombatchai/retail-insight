@@ -1,11 +1,6 @@
 import React, { useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAnalysis } from "../context/AnalysisContext.jsx";
-return (
-  <div style={{ color: "red", fontSize: "40px", fontWeight: "bold" }}>
-    TEST TEST TEST
-  </div>
-);
 // ============================================================
 // แปลงวันที่ให้เป็น YYYY-MM
 // รองรับ:

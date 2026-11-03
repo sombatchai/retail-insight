@@ -1,68 +1,53 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
+@import "tailwindcss";
 
-export default function ForecastPage() {
-  const navigate = useNavigate();
+@theme {
+  --font-sans: "IBM Plex Sans Thai", "Sarabun", ui-sans-serif, system-ui, sans-serif;
 
-  return (
-    <div className="p-6 max-w-7xl mx-auto space-y-6">
-      {/* Header Section */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-        <div>
-          <h1 className="text-2xl font-bold text-[var(--color-ink-900)] flex items-center gap-2">
-            <svg className="w-7 h-7 text-[var(--color-brand-500)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-            </svg>
-            พยากรณ์ยอดขาย
-          </h1>
-          <p className="text-[var(--color-ink-500)] text-sm mt-1">
-            คาดการณ์แนวโน้มความต้องการสินค้าล่วงหน้าด้วยโมเดลวิเคราะห์ Time-Series
-          </p>
-        </div>
+  /* Brand: indigo (matches #4f46e5 used in charts) */
+  --color-brand-50: #eef2ff;
+  --color-brand-100: #e0e7ff;
+  --color-brand-200: #c7d2fe;
+  --color-brand-300: #a5b4fc;
+  --color-brand-400: #818cf8;
+  --color-brand-500: #6366f1;
+  --color-brand-600: #4f46e5;
+  --color-brand-700: #4338ca;
+  --color-brand-800: #3730a3;
+  --color-brand-900: #312e81;
 
-        {/* Action Controls */}
-        <div className="flex items-center gap-3">
-          <select 
-            disabled 
-            className="bg-white border border-[#ecedf5] text-[var(--color-ink-500)] px-4 py-2 rounded-xl text-sm font-medium opacity-60 cursor-not-allowed"
-          >
-            <option>ไม่มีข้อมูลสินค้า</option>
-          </select>
+  /* Ink: cool neutral for text */
+  --color-ink-50: #f8f9fc;
+  --color-ink-100: #eef0f6;
+  --color-ink-200: #dde1ec;
+  --color-ink-300: #b9bfd1;
+  --color-ink-400: #8d94ab;
+  --color-ink-500: #676e86;
+  --color-ink-600: #4f566c;
+  --color-ink-700: #3b4155;
+  --color-ink-800: #272c3d;
+  --color-ink-900: #171a27;
 
-          <div className="flex bg-[var(--color-mist)] p-1 rounded-xl text-sm font-medium text-[var(--color-ink-500)]">
-            <button className="px-3 py-1.5 rounded-lg bg-white shadow-sm text-[var(--color-brand-600)] font-semibold">30 วัน</button>
-            <button className="px-3 py-1.5 rounded-lg opacity-60 cursor-not-allowed" disabled>60 วัน</button>
-            <button className="px-3 py-1.5 rounded-lg opacity-60 cursor-not-allowed" disabled>90 วัน</button>
-          </div>
-        </div>
-      </div>
+  /* Mint: positive / success */
+  --color-mint-50: #ecfdf5;
+  --color-mint-100: #d1fae5;
+  --color-mint-500: #10b981;
+  --color-mint-600: #059669;
+  --color-mint-700: #047857;
 
-      {/* Main Empty State Container */}
-      <div className="card p-12 text-center flex flex-col items-center justify-center min-h-[420px]">
-        <div className="w-20 h-20 bg-[var(--color-brand-50)] text-[var(--color-brand-500)] rounded-3xl flex items-center justify-center mb-5 shadow-inner">
-          <svg className="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.75} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-          </svg>
-        </div>
+  /* Surfaces */
+  --color-surface: #f6f7fb;
+  --color-mist: #f3f4fa;
+}
 
-        <h3 className="text-xl font-bold text-[var(--color-ink-900)] mb-2">
-          เริ่มต้นพยากรณ์ยอดขายโดยเพิ่มข้อมูลสินค้า
-        </h3>
-        <p className="text-[var(--color-ink-500)] max-w-md text-sm leading-relaxed mb-6">
-          บันทึกประวัติยอดขายย้อนหลังเพื่อให้ระบบเรียนรู้แพตเทิร์น 
-          และเริ่มคำนวณแนวโน้มความต้องการในอนาคตได้อย่างแม่นยำ
-        </p>
+@layer base {
+  html,
+  body {
+    @apply bg-surface font-sans text-ink-900 antialiased;
+  }
+}
 
-        <button
-          onClick={() => navigate('/data')}
-          className="inline-flex items-center gap-2 px-5 py-3 bg-[var(--color-brand-500)] hover:bg-[var(--color-brand-600)] text-white font-medium rounded-xl transition-all shadow-md hover:shadow-lg active:scale-95 cursor-pointer"
-        >
-          <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
-          </svg>
-          ไปที่หน้าข้อมูลและสถิติ
-        </button>
-      </div>
-    </div>
-  );
+@layer components {
+  .card {
+    @apply rounded-2xl border border-[#eceef8] bg-white shadow-2xs;
+  }
 }
