@@ -50,6 +50,3 @@ src/
 └── index.css     Tailwind + ธีมสี
 ```
 
-## Deploy
-
-โปรเจคนี้ deploy บน [Vercel](https://vercel.com/) โดยต้องตั้งค่า Environment Variables `VITE_FIREBASE_*` ทั้งหมดใน Vercel ก่อน build
