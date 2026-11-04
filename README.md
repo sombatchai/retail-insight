@@ -35,45 +35,7 @@
 - [Firebase Firestore](https://firebase.google.com/docs/firestore) — เก็บข้อมูลยอดขายแบบ Realtime
 - [SheetJS (xlsx)](https://sheetjs.com/) และ [PapaParse](https://www.papaparse.com/) — อ่านไฟล์ Excel / CSV
 
-## การติดตั้งและรันโปรเจค
-
-ต้องมี Node.js เวอร์ชัน 20 ขึ้นไป
-
-```bash
-git clone https://github.com/sombatchai/retail-insight.git
-cd retail-insight
-npm install
-```
-
-สร้างไฟล์ `.env.local` ที่ root ของโปรเจค แล้วใส่ค่าจาก Firebase Console (Project settings → Your apps)
-
-```env
-VITE_FIREBASE_API_KEY=
-VITE_FIREBASE_AUTH_DOMAIN=
-VITE_FIREBASE_PROJECT_ID=
-VITE_FIREBASE_STORAGE_BUCKET=
-VITE_FIREBASE_MESSAGING_SENDER_ID=
-VITE_FIREBASE_APP_ID=
-VITE_FIREBASE_MEASUREMENT_ID=
-```
-
-รันโหมดพัฒนา
-
-```bash
-npm run dev
-```
-
-แล้วเปิด http://localhost:5173
-
-คำสั่งอื่น ๆ
-
-| คำสั่ง | ใช้ทำอะไร |
-| --- | --- |
-| `npm run build` | Build สำหรับ production (ผลลัพธ์อยู่ใน `dist/`) |
-| `npm run preview` | เปิดดูผลลัพธ์ที่ build แล้ว |
-| `npm run lint` | ตรวจโค้ดด้วย oxlint |
-
-> หมายเหตุ: หน้า AI Insight เรียก API ที่ `http://localhost:8000/generate-ai-insight` ต้องรัน backend แยกต่างหาก ถ้าไม่ได้รัน หน้าอื่นยังใช้งานได้ตามปกติ
+## ลิงค์เข้าดู https://sombatchai.github.io/retail-insight/
 
 ## โครงสร้างโปรเจค
 
